@@ -5,7 +5,7 @@ import axios from 'axios'
 import Location from './components/Location.jsx';
 import ResidentList from './components/ResidentList.jsx';
 import image from './imgs/logo.png'
-import song from './video/rick.mp3'
+import song from './video/rick2.mp3'
 function App() {
   
   const [location, setLocation] = useState();
