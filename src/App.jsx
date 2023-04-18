@@ -18,15 +18,18 @@ function App() {
     .then((res) => setLocation(res.data))
     .catch((err) => console.log(err))
   }
-  function playSong() {
-    var audio = new Audio(song); 
-    audio.play();
+  
+var audio = new Audio(song);
+var isPlaying = false; //Deje Las Variables declaradas con VAR por una cuestion de ambitos
 
-    audio.addEventListener('ended', function() {
-      audio.currentTime = 0; 
-      audio.play(); 
-    });
+function toggleSong() {
+  if (isPlaying) {
+    audio.pause(); 
+  } else {
+    audio.play(); 
   }
+  isPlaying = !isPlaying;
+}
 
   useEffect(() => {
     const URL = `https://rickandmortyapi.com/api/location/${random()}`
@@ -39,7 +42,7 @@ function App() {
 
   return (
     <div className="App">
-      <button onClick={playSong} className='button--song'><i className='bx bx-play'></i></button>
+      <button onClick={toggleSong} className='button--song'><i className='bx bx-play'></i></button>
 
       <div className="backgro">
           <div className="conteiner--word">
